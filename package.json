@@ -1,0 +1,24 @@
+{
+  "name": "talitapagani.github.io",
+  "version": "1.0.0",
+  "description": "Portfolio",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "semantic-ui": "^2.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talitapagani/talitapagani.github.io.git"
+  },
+  "author": "Talita Pagani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/talitapagani/talitapagani.github.io/issues"
+  },
+  "homepage": "https://github.com/talitapagani/talitapagani.github.io#readme"
+}

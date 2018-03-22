@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -18,6 +17,7 @@
 @element : 'image';
 
 @import (multiple) '../../theme.config';
+
 
 /*******************************
              Image
@@ -50,6 +50,15 @@ img.ui.image {
 .ui.hidden.images,
 .ui.hidden.image {
   display: none;
+}
+.ui.hidden.transition.images,
+.ui.hidden.transition.image {
+  display: block;
+  visibility: hidden;
+}
+.ui.images > .hidden.transition {
+  display: inline-block;
+  visibility: hidden;
 }
 
 
@@ -310,8 +319,8 @@ img.ui.bordered.image {
 }
 
 .ui.images .image,
-.ui.images img,
-.ui.images svg {
+.ui.images > img,
+.ui.images > svg {
   display: inline-block;
   margin: 0em @imageHorizontalMargin @imageVerticalMargin;
 }
