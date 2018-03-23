@@ -3,7 +3,6 @@
  * http://github.com/semantic-org/semantic-ui/
  *
  *
- * Copyright 2015 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
@@ -35,7 +34,7 @@
 
   text-shadow: none;
   font-style: normal;
-  font-weight: normal;
+  font-weight: @normal;
 
   line-height: @promptLineHeight;
   padding: @promptPadding;
@@ -72,6 +71,7 @@
   top: 100%;
   left: 0%;
   transform-origin: center top;
+  white-space: normal;
 
   background: @resultsBackground;
 
@@ -270,23 +270,73 @@
   color: @resultActiveDescriptionColor;
 }
 
+/*--------------------
+        Disabled
+----------------------*/
+
+/* Disabled */
+.ui.disabled.search {
+  cursor: default;
+  pointer-events: none;
+  opacity: @disabledOpacity;
+}
+
+
 /*******************************
            Types
 *******************************/
 
 /*--------------
-    Categories
+    Selection
+---------------*/
+
+.ui.search.selection .prompt {
+  border-radius: @selectionPromptBorderRadius;
+}
+
+/* Remove input */
+.ui.search.selection > .icon.input > .remove.icon {
+  pointer-events: none;
+  position: absolute;
+  left: auto;
+  opacity: 0;
+  color: @selectionCloseIconColor;
+  top: @selectionCloseTop;
+  right: @selectionCloseRight;
+  transition: @selectionCloseTransition;
+}
+.ui.search.selection > .icon.input > .active.remove.icon {
+  cursor: pointer;
+  opacity: @selectionCloseIconOpacity;
+  pointer-events: auto;
+}
+.ui.search.selection > .icon.input:not([class*="left icon"]) > .icon ~ .remove.icon {
+  right: @selectionCloseIconInputRight;
+}
+.ui.search.selection > .icon.input > .remove.icon:hover {
+  opacity: @selectionCloseIconHoverOpacity;
+  color: @selectionCloseIconHoverColor;
+}
+
+
+/*--------------
+    Category
 ---------------*/
 
 .ui.category.search .results {
   width: @categoryResultsWidth;
 }
 
+.ui.category.search .results.animating,
+.ui.category.search .results.visible {
+  display: table;
+}
+
 /* Category */
 .ui.category.search > .results .category {
+  display: table-row;
   background: @categoryBackground;
   box-shadow: @categoryBoxShadow;
-  border-bottom: @categoryDivider;
   transition: @categoryTransition;
 }
 
@@ -303,30 +353,32 @@
   border-radius: 0em 0em @resultsBorderRadius 0em;
 }
 
-/* Category Result */
-.ui.category.search > .results .category .result {
-  background: @categoryResultBackground;
-  margin-left: @categoryNameWidth;
-  border-left: @categoryResultLeftBorder;
-  border-bottom: @categoryResultDivider;
-  transition: @categoryResultTransition;
-  padding: @categoryResultPadding;
-}
-.ui.category.search > .results .category:last-child .result:last-child {
-  border-bottom: @categoryResultLastDivider;
-}
-
 /* Category Result Name */
 .ui.category.search > .results .category > .name {
+  display: table-cell;
+  text-overflow: ellipsis;
   width: @categoryNameWidth;
+  white-space: @categoryNameWhitespace;
   background: @categoryNameBackground;
   font-family: @categoryNameFont;
   font-size: @categoryNameFontSize;
-  float: @categoryNameFontSize;
-  float: @categoryNameFloat;
   padding: @categoryNamePadding;
   font-weight: @categoryNameFontWeight;
   color: @categoryNameColor;
+  border-bottom: @categoryDivider;
+}
+
+/* Category Result */
+.ui.category.search > .results .category .results {
+  display: table-cell;
+  background: @categoryResultBackground;
+  border-left: @categoryResultLeftBorder;
+  border-bottom: @categoryDivider;
+}
+.ui.category.search > .results .category .result {
+  border-bottom: @categoryResultDivider;
+  transition: @categoryResultTransition;
+  padding: @categoryResultPadding;
 }
 
 /*******************************
@@ -379,6 +431,16 @@
 }
 .ui.massive.search {
   font-size: @relativeMassive;
+}
+
+/*--------------
+      Mobile
+---------------*/
+
+@media only screen and (max-width: @largestMobileScreen) {
+  .ui.search .results {
+    max-width: @mobileMaxWidth;
+  }
 }
 
 .loadUIOverrides();

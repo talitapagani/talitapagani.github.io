@@ -1,0 +1,21 @@
+lang: en-US
+url: http://talitapagani.com
+title: Talita Pagani - UX Designer
+baseurl: ""
+twitter_username: talitapagani
+github_username: talitapagani
+linkedin_page: talitapagani
+location: Vila Olímpia - São Paulo
+email: contato@talitapagani.com
+
+google_analytics_tracking_id: UA-111-1
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - assets/src
+  - assets/tasks
+  - assets/gulpfile.js
+  - package.json
+  - semantic.json
