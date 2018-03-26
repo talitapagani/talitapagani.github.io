@@ -8,3 +8,4 @@ yarn-debug.log*
 yarn-error.log*
 node_modules/
 jspm_packages/
+package-lock.json
